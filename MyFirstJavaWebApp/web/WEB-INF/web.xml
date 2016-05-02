@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>globalString</param-name>
+        <param-value>shoop da wooooop</param-value>
+    </context-param>
+    <context-param>
+        <param-name>globalInt</param-name>
+        <param-value>8</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>DateServlet</servlet-name>
+        <servlet-class>fr.oursbleu.training.DateServlet</servlet-class>
+        <init-param>
+            <param-name>initString</param-name>
+            <param-value>badaboom</param-value>
+        </init-param>
+        <init-param>
+            <param-name>initInt</param-name>
+            <param-value>58</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DateServlet</servlet-name>
+        <url-pattern>/date</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <resource-ref>
+        <res-ref-name>jdbc/myDatasource</res-ref-name>
+        <res-type>javax.sql.ConnectionPoolDataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+</web-app>
