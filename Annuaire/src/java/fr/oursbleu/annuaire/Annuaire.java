@@ -44,7 +44,7 @@ public final class Annuaire
     public static final String ADRESSE = "adresse";
     private static int nextId;
     
-    private static final String OUTPUT_FILE = "contacts.xml";
+    private static final String OUTPUT_FILE = "Data/contacts.xml";
     
     private static Boolean isInitialized = false;
     private static Boolean isDestroyed = false;

@@ -26,16 +26,9 @@
             <tbody>
                 <c:forEach var="contact" items="${contacts}">
                     
+                    <c:set var="contact" value="${contact}" scope="request"></c:set>
                     <tr>
-                        <td>${contact.id}</td>
-                        
-                        <td>
-                            <a href="${pageContext.request.contextPath}/contact/edit?id=${contact.id}">
-                                ${contact.prenom}
-                            </a>
-                        </td>
-                        
-                        <td>${contact.nom}</td>
+                        <jsp:include page="${contact.htmlFragment}"></jsp:include>
                     </tr>
                     
                 </c:forEach>

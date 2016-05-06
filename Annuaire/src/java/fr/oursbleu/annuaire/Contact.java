@@ -14,6 +14,11 @@ public class Contact implements java.io.Serializable
     {
         this.id = id;
     }
+    
+    public String getHtmlFragment()
+    {
+        return "Fragments/Contact.jsp";
+    }
 
     /**
      * @return the id
