@@ -1,4 +1,5 @@
 
+<%@page import="fr.oursbleu.annuaire.Contact"%>
 <%-- 
     Document   : AddContact
     Created on : 2 mai 2016, 09:31:49
@@ -17,17 +18,7 @@
         
         <form action="${pageContext.request.contextPath}/contact/add" method="POST">
             
-            <p>
-                <label for="prenom">Prénom :</label>
-                <input id="prenom" type="text" name="prenom" />
-            </p>
-            
-            <p>
-                <label for="nom">Nom :</label>
-                <input id="nom" type="text" name="nom" /><br />
-            </p>
-            
-            <input type="submit" value="Ajouter" />
+            <jsp:include page="<%= Contact.getAddFragment() %>"></jsp:include>
             
         </form>
     </body>

@@ -1,29 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
--->
-
-<contacts nextId="33">
-    <contact id="11">
-        <prenom>Lokesh</prenom>
-        <nom>Gupta</nom>
-        <adresse>India</adresse>
-    </contact>
-    <contact id="27">
-        <prenom>Alex</prenom>
-        <nom>Gussin</nom>
-        <adresse>Russia</adresse>
-    </contact>
-    <contact id="48">
-        <prenom>Erwan</prenom>
-        <nom>Geary</nom>
-        <adresse>France</adresse>
-    </contact>
-    <contact id="32">
-        <prenom>David</prenom>
-        <nom>Feezor</nom>
-        <adresse>USA</adresse>
-    </contact>
+--><contacts nextId="45">
+  <contact id="34">
+    <prenom>Paulinus</prenom>
+    <nom>Naref</nom>
+    <adresse/>
+  </contact>
+  <contact id="35">
+    <prenom>Ã ernaeÃ©</prenom>
+    <nom>Ã©eeza</nom>
+    <adresse/>
+  </contact>
+  <contact id="36">
+    <prenom>ererfze</prenom>
+    <nom>defe</nom>
+    <adresse/>
+  </contact>
+  <contact id="43">
+    <prenom>marceline</prenom>
+    <nom>vassallucci</nom>
+    <adresse/>
+  </contact>
 </contacts>

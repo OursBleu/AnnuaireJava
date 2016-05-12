@@ -3,17 +3,17 @@
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
 */
-package fr.oursbleu.annuaire;
+package fr.oursbleu.annuaire.servlets;
 
+import fr.oursbleu.annuaire.Annuaire;
+import fr.oursbleu.annuaire.Contact;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,22 +22,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author Ours
  */
 @WebServlet(name = "DisplayContacts", urlPatterns = {"/contact"})
-public class DisplayContacts extends HttpServlet
+public class DisplayContacts extends MyServlet
 {
     private static final String PARAM_SORT = "sort";
     private static final String PARAM_ORDER = "order";
     private static final String ORDER_DESC = "desc";
     private static final String PARAM_FILTER = "filter";
-    
-    @Override
-    public void init(ServletConfig config) throws ServletException
-    {
-        System.out.println("INIT CALLED");
-        
-        String appPath = config.getServletContext().getRealPath("") + "\\";
-        Annuaire.Init(appPath);
-        
-    }
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -53,14 +43,6 @@ public class DisplayContacts extends HttpServlet
         
         request.setAttribute("contacts", outputContacts);
         request.getRequestDispatcher( "/DisplayContacts.jsp" ).forward( request, response );
-    }
-    
-    @Override
-    public void destroy()
-    {
-        System.out.println("DESTROY CALLED");
-        
-        Annuaire.Destroy();
     }
     
     // FILTER METHODS

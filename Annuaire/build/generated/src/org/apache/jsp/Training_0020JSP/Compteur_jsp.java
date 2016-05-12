@@ -46,8 +46,6 @@ public final class Compteur_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write('\n');
       out.write('\n');
  compteur ++; 
-      out.write('\n');
- Integer.parseInt("ble"); 
       out.write("\n");
       out.write("\n");
       out.write("\n");

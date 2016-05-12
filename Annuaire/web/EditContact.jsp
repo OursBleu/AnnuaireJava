@@ -17,19 +17,8 @@
         
         <form action="${pageContext.request.contextPath}/contact/edit" method="POST">
             
-            <input type="hidden" value="${contact.id}" name="id" />
-            
-            <p>
-                <label for="prenom">Prénom :</label>
-                <input id="prenom" type="text" name="prenom" value="${contact.prenom}" />
-            </p>
-            
-            <p>
-                <label for="nom">Nom :</label>
-                <input id="nom" type="text" name="nom" value="${contact.nom}" /><br />
-            </p>
-            
-            <input type="submit" value="Enregistrer" />
+            <c:set var="contact" value="${contact}" scope="request"></c:set>
+            <jsp:include page="${contact.editFragment}"></jsp:include>
             
         </form>
             

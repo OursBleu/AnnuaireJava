@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.oursbleu.annuaire;
+package fr.oursbleu.annuaire.servlets;
 
+import fr.oursbleu.annuaire.Annuaire;
+import fr.oursbleu.annuaire.Contact;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,25 +18,18 @@ import javax.servlet.http.HttpServletResponse;
  * @author Ours
  */
 @WebServlet(name = "AddContact", urlPatterns = {"/contact/add"})
-public class AddContact extends HttpServlet 
+public class AddContact extends MyServlet 
 {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
         Contact c = new Contact(Annuaire.GetNextId());
-        c.setNom(GetParam(request, "nom"));
-        c.setPrenom(GetParam(request, "prenom"));
+        c.setNom(GetParam(request, Annuaire.NOM));
+        c.setPrenom(GetParam(request, Annuaire.PRENOM));
         Annuaire.GetContacts().add(c);
         
         response.sendRedirect(this.getServletContext().getContextPath() + "/contact" );
-    }
-    
-    private String GetParam(HttpServletRequest request, String fieldName)
-    {
-        String res = request.getParameter(fieldName);
-        if (res == null) res = "";
-        return res;
     }
 
 }

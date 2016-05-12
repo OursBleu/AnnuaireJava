@@ -10,14 +10,28 @@ public class Contact implements java.io.Serializable
     private String email = "";
     private String commentaire = "";
     
+    public Contact()
+    {
+        super();
+    }
     public Contact(int id)
     {
         this.id = id;
     }
     
-    public String getHtmlFragment()
+    public String getDisplayFragment()
     {
-        return "Fragments/Contact.jsp";
+        return "Fragments/DisplayContactFragment.jsp";
+    }
+    
+    public String getEditFragment()
+    {
+        return "Fragments/EditContactFragment.jsp";
+    }
+    
+    public static String getAddFragment()
+    {
+        return "Fragments/AddContactFragment.jsp";
     }
 
     /**

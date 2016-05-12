@@ -27,10 +27,8 @@
                 <c:forEach var="contact" items="${contacts}">
                     
                     <c:set var="contact" value="${contact}" scope="request"></c:set>
-                    <tr>
-                        <jsp:include page="${contact.htmlFragment}"></jsp:include>
-                    </tr>
-                    
+                    <jsp:include page="${contact.displayFragment}"></jsp:include>
+                        
                 </c:forEach>
             </tbody>
         </table>

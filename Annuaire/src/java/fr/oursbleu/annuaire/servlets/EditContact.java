@@ -1,4 +1,4 @@
-package fr.oursbleu.annuaire;
+package fr.oursbleu.annuaire.servlets;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,10 +6,11 @@ package fr.oursbleu.annuaire;
  * and open the template in the editor.
  */
 
+import fr.oursbleu.annuaire.Annuaire;
+import fr.oursbleu.annuaire.Contact;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Ours
  */
 @WebServlet(urlPatterns = {"/contact/edit"})
-public class EditContact extends HttpServlet 
+public class EditContact extends MyServlet 
 {
 
     @Override
@@ -27,7 +28,7 @@ public class EditContact extends HttpServlet
         int id = Integer.parseInt(request.getParameter(Annuaire.ID));
         Contact c = Annuaire.GetContacts().get(Annuaire.FindById(id));
         
-        request.setAttribute("contact", c);
+        request.setAttribute(Annuaire.CONTACT, c);
         request.getRequestDispatcher( "/EditContact.jsp" ).forward( request, response );
     }
     
@@ -37,17 +38,10 @@ public class EditContact extends HttpServlet
         int id = Integer.parseInt(request.getParameter(Annuaire.ID));
         Contact c = Annuaire.GetContacts().get(Annuaire.FindById(id));
         
-        c.setNom(GetParam(request, "nom"));
-        c.setPrenom(GetParam(request, "prenom"));
+        c.setNom(GetParam(request, Annuaire.NOM));
+        c.setPrenom(GetParam(request, Annuaire.PRENOM));
         
         response.sendRedirect(this.getServletContext().getContextPath() + "/contact" );
-    }
-    
-    private String GetParam(HttpServletRequest request, String fieldName)
-    {
-        String res = request.getParameter(fieldName);
-        if (res == null) res = "";
-        return res;
     }
 
 }
